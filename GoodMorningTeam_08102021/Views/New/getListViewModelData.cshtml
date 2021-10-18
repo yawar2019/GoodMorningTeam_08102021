@@ -1,0 +1,38 @@
+﻿@model GoodMorningTeam_08102021.Models.EmpDept
+@{
+    ViewBag.Title = "getListViewModelData";
+}
+
+<h2>getListViewModelData</h2>
+
+<table class="table table-condensed">
+    <tr>
+        <th>EmpId</th>
+        <th>EmpName</th>
+        <th>EmpSalary</th>
+    </tr>
+    @foreach (var item in Model.emp)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmpSalary</td>
+        </tr>
+    }
+</table>
+
+<br />
+<table class="table table-condensed">
+    <tr>
+        <th>DeptId</th>
+        <th>DeptName</th>
+        
+    </tr>
+    @foreach (var item in Model.dept)
+    {
+        <tr>
+            <td>@item.DeptId</td>
+            <td>@item.DeptName</td>
+        </tr>
+    }
+</table>

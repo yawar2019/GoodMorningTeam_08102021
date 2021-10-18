@@ -13,11 +13,21 @@ namespace GoodMorningTeam_08102021
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "Student",
+                url: "Hyderabad/Public",
+                defaults: new {  controller = "New", action = "getId", id = UrlParameter.Optional }
             );
+
+          
+
+            routes.MapRoute(
+            name: "alpha",
+            url: "{controller}/{action}/{id}",//home/index/1211
+            defaults: new { controller = "New", action = "getId", id = UrlParameter.Optional }
+        );
         }
     }
 }

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "getMultipleData";
+}
+
+<h2>getMultipleData</h2>
+
+ 
+
+@foreach (var item in ViewBag.Employee)//roshan,bhargavi,sreekanth
+{
+    @item.EmpId<br />
+    @item.EmpName<br />
+    @item.EmpSalary<br /><br />
+}
