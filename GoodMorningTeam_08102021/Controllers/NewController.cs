@@ -84,7 +84,7 @@ namespace GoodMorningTeam_08102021.Controllers
             return View(emp);
         }
 
-        public ActionResult getListViewModelData()
+        public ViewResult getListViewModelData(int?id)
         {
             List<EmployeeModel> listObj = new List<EmployeeModel>();
 
@@ -130,5 +130,31 @@ namespace GoodMorningTeam_08102021.Controllers
 
             return View(eobj);
         }
+
+        public RedirectResult GotoGoogle()
+        {
+            return Redirect("http://www.google.com");
+        }
+        public RedirectResult GotoGoogle2()
+        {
+            return Redirect("~/new/getListViewModelData?id=1");
+        }
+
+        public FileResult getmeFile()
+        {
+            return File("~/Web.config", "text/plain");
+        }
+
+        public FileResult getmeFile2()
+        {
+            return File("~/Web.config", "application/xml");
+        }
+        public FileResult getmeFile3()
+        {
+            return File("~/ActionResult.pdf", "application/pdf", "ActionResult.pdf");
+        }
+
+       
+
     }
 }
