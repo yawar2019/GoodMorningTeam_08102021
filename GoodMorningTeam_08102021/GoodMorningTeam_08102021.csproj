@@ -136,6 +136,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\NewController.cs" />
+    <Compile Include="CustomeHandler\UserCustomHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,6 +161,9 @@
     <Content Include="Views\New\getMultipleData.cshtml" />
     <Content Include="Views\New\getViewModel.cshtml" />
     <Content Include="Views\New\getListViewModelData.cshtml" />
+    <Content Include="Views\Shared\_MyPartialView.cshtml" />
+    <Content Include="Views\New\PartialViewExample.cshtml" />
+    <Content Include="Views\Shared\_MyLayout2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

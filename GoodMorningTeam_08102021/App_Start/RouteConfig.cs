@@ -14,7 +14,7 @@ namespace GoodMorningTeam_08102021
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapMvcAttributeRoutes();
-
+            routes.Add(new Route("test", new CustomeHandler.UserCustomHandler()));
             routes.MapRoute(
                 name: "Student",
                 url: "Hyderabad/Public",

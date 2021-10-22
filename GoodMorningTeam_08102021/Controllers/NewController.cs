@@ -154,7 +154,15 @@ namespace GoodMorningTeam_08102021.Controllers
             return File("~/ActionResult.pdf", "application/pdf", "ActionResult.pdf");
         }
 
-       
+       public ActionResult PartialViewExample()
+        {
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1211;
+            emp.EmpName = "Roshan";
+            emp.EmpSalary = 250000;
+          
+            return View(emp);
+        }
 
     }
 }
