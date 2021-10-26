@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoodMorningTeam_08102021.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,11 +18,27 @@ namespace GoodMorningTeam_08102021
             routes.Add(new Route("test", new CustomeHandler.UserCustomHandler()));
             routes.MapRoute(
                 name: "Student",
-                url: "Hyderabad/Public",
-                defaults: new {  controller = "New", action = "getId", id = UrlParameter.Optional }
+                url: "Hyderabad/Public/{id}",
+                defaults: new {  controller = "New", action = "getId", id = UrlParameter.Optional },
+                constraints:new {id=@"\d+"}
+                
             );
 
-          
+            routes.MapRoute(
+                 name: "Student1",
+                 url: "Hyderabad/Public2/{id}",
+                 defaults: new { controller = "New", action = "getId", id = UrlParameter.Optional },
+                 constraints: new { id = @"\d{1,3}" }
+
+             );
+
+            routes.MapRoute(
+               name: "Student2",
+               url: "Hyderabad/Public3/{EmailId}",
+               defaults: new { controller = "New", action = "EmailChecker", id = UrlParameter.Optional },
+               constraints: new { EmailId = new UserDefineConstraint() }
+
+           );
 
             routes.MapRoute(
             name: "alpha",

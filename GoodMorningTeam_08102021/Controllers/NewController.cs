@@ -7,12 +7,13 @@ using System.Web.Mvc;
 
 namespace GoodMorningTeam_08102021.Controllers
 {
+    [RoutePrefix("Mega")]
     public class NewController : Controller
     {
          ///testing
-         public int getId()
+         public string getId(string id)
         {
-            return 1211;
+            return id;
         }
 
         public string getmeEmpId(int? eid,string Name)
@@ -24,7 +25,7 @@ namespace GoodMorningTeam_08102021.Controllers
             return "My Employee Id is" + id+" Name is "+Request.QueryString["Name"];
         }
 
-        [Route("Hi/Roshan")]
+        [Route("~/Hi/Roshan")]
         [Route("Hi/Srikanth")]
         [Route("Hi/devyani")]
         [Route("New/Wish")]
@@ -163,6 +164,69 @@ namespace GoodMorningTeam_08102021.Controllers
           
             return View(emp);
         }
+        public ActionResult EmailChecker(string EmailId)
+        {
+            return Content(EmailId);
+        }
 
+
+        [Route("Hi/Roshan/{Content}")]
+        [Route("Hi/Srikanth/{Content}")]
+        [Route("Hi/{Content}/devyani")]
+        [Route("New/Test/{Content}/Wish")]
+        public string AttibuteExwithParam(string Content)
+        {
+            return "Good Morning Team "+Content;
+        }
+        [Route("Class/Student/{Id:int}")]
+        public string AttibuteExwithParam2(int Id)
+        {
+            return "Good Morning student - Id " + Id;
+        }
+
+        [Route("Class/Student/{Name:alpha}")]
+        public string AttibuteExwithParam3(string Name)
+        {
+            return "Good Morning student - Name " + Name;
+        }
+
+        [Route("Class/StudentDb/{Id:int:min(100)}")]
+        public string AttibuteExwithParam3(int Id)
+        {
+            return "Good Morning student - Id " + Id;
+        }
+
+
+        [Route("Class/StudentDb2/{status:bool}")]
+        public string AttibuteExwithParam4(bool status)
+        {
+            return "Good Morning student - Status " + status;
+        }
+
+        public JsonResult Testjson()
+        {
+            List<EmployeeModel> listObj = new List<EmployeeModel>();
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 1211;
+            emp1.EmpName = "Roshan";
+            emp1.EmpSalary = 250000;
+
+            EmployeeModel emp2 = new EmployeeModel();
+            emp2.EmpId = 1212;
+            emp2.EmpName = "Barghavi";
+            emp2.EmpSalary = 350000;
+
+            EmployeeModel emp3 = new EmployeeModel();
+            emp3.EmpId = 1213;
+            emp3.EmpName = "sreekanth";
+            emp3.EmpSalary = 450000;
+
+            listObj.Add(emp1);
+            listObj.Add(emp2);
+            listObj.Add(emp3);
+
+            return Json(listObj,JsonRequestBehavior.AllowGet);
+        }
     }
 }
