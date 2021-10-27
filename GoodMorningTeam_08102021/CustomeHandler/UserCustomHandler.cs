@@ -22,7 +22,7 @@ namespace GoodMorningTeam_08102021.CustomeHandler
 
         public void ProcessRequest(HttpContext context)
         {
-            context.Response.Redirect("https://www.google.com/");
+          //  context.Response.Redirect("https://www.google.com/");
         }
     }
 }

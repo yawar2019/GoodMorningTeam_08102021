@@ -15,7 +15,7 @@ namespace GoodMorningTeam_08102021
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapMvcAttributeRoutes();
-            routes.Add(new Route("test", new CustomeHandler.UserCustomHandler()));
+            //routes.Add(new Route("test", new CustomeHandler.UserCustomHandler()));
             routes.MapRoute(
                 name: "Student",
                 url: "Hyderabad/Public/{id}",
@@ -39,6 +39,12 @@ namespace GoodMorningTeam_08102021
                constraints: new { EmailId = new UserDefineConstraint() }
 
            );
+
+            routes.MapRoute(
+           name: "Bread",
+           url: "Bread/soft/{id}",//home/index/1211
+           defaults: new { controller = "New", action = "getId", id = UrlParameter.Optional }
+       );
 
             routes.MapRoute(
             name: "alpha",

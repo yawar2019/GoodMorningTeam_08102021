@@ -13,7 +13,7 @@ namespace GoodMorningTeam_08102021.Controllers
          ///testing
          public string getId(string id)
         {
-            return id;
+            return "My EmpId id "+id;
         }
 
         public string getmeEmpId(int? eid,string Name)
@@ -227,6 +227,49 @@ namespace GoodMorningTeam_08102021.Controllers
             listObj.Add(emp3);
 
             return Json(listObj,JsonRequestBehavior.AllowGet);
+        }
+
+        public ContentResult getContent(int? id) {
+
+            if (id == 1)
+            {
+                return Content("Hai this is String");
+            }
+            else if (id == 2)
+            {
+                return Content("<p style=color:red>Test Color</p>");
+            }
+            else
+            {
+                return Content("<script>alert('Hi Alert!')</script>");
+            }
+        }
+
+        public RedirectToRouteResult TestRoute(int EmpId)
+        {
+            return RedirectToRoute("Bread",new {id= EmpId });
+        }
+
+        public RedirectToRouteResult HelloTest()
+        {
+            return RedirectToAction("PartialViewExample");
+        }
+
+        public RedirectToRouteResult HelloTest2()
+        {
+         
+
+            return RedirectToAction("index","default",new {id=1211});
+        }
+
+        public RedirectToRouteResult HelloTest3()
+        {
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 1211;
+            emp1.EmpName = "Roshan";
+            emp1.EmpSalary = 250000;
+
+            return RedirectToAction("index2", "default", emp1);
         }
     }
 }
