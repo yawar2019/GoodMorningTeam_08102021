@@ -20,11 +20,16 @@ namespace AdoDotnetExample.Models
         public List<EmployeeModel> GetEmployee() {
 
             List<EmployeeModel> listObj = new List<EmployeeModel>();
+
             SqlCommand cmd = new SqlCommand("sp_getRituEmployees", con);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
             DataTable dt = new DataTable();
+
             SqlDataAdapter da = new SqlDataAdapter(cmd);
+
             da.Fill(dt);
+
             foreach (DataRow dr in dt.Rows)
             {
                 EmployeeModel emp = new EmployeeModel();
@@ -34,6 +39,23 @@ namespace AdoDotnetExample.Models
                 listObj.Add(emp);
             }
             return listObj;
+        }
+
+        public int SaveEmployee(EmployeeModel Emp)
+        {
+            SqlCommand cmd = new SqlCommand("sp_insertRituEmployees", con);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            con.Open();
+            cmd.Parameters.AddWithValue("@EmpName", Emp.EmpName);
+            cmd.Parameters.AddWithValue("@EmpSalary", Emp.EmpSalary);
+
+            int result = cmd.ExecuteNonQuery();
+
+
+            con.Close();
+            return result;
+
+
         }
     }
 }
