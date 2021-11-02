@@ -1,0 +1,17 @@
+﻿@model AdoDotnetExample.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+@Model.EmpId<br />
+@Model.EmpName<br />
+@Model.EmpSalary<br />
+
+<br />
+
+<form action="~/Default/Delete/@Model.EmpId" method="post">
+    <input type="submit"  value="Delete" />
+</form>
