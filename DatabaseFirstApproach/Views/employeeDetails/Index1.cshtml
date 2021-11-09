@@ -1,10 +1,10 @@
-﻿@model IEnumerable<DatabaseFirstApproach.Models.EmpDept>
+﻿@model IEnumerable<DatabaseFirstApproach.Models.sp_getNeerjaEmployees_Result>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index1";
 }
 
-<h2>Index</h2>
+<h2>Index1</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -18,13 +18,7 @@
             @Html.DisplayNameFor(model => model.EmpName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DeptId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.EmpSalary)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeptName)
         </th>
         <th></th>
     </tr>
@@ -38,13 +32,7 @@
             @Html.DisplayFor(modelItem => item.EmpName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DeptId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.EmpSalary)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeptName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

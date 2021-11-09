@@ -18,5 +18,10 @@ namespace GoodMorningTeam_08102021.Controllers
         {
             return Content(emp.EmpName);
         }
+
+        public ActionResult HtmlHelperExample()
+        {
+            return View();
+        }
     }
 }

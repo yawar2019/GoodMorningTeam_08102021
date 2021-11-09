@@ -17,9 +17,25 @@ namespace DatabaseFirstApproach.Controllers
         // GET: employeeDetails
         public ActionResult Index()
         {
-            return View(db.employeeDetails.ToList());
+            var empDept = (from emp in db.employeeDetails
+                           join dept in db.Departments
+                           on emp.DeptId equals dept.DeptId
+                           select new EmpDept
+                           {
+                               EmpId = emp.EmpId,
+                               EmpName = emp.EmpName,
+                               EmpSalary = emp.EmpId,
+                               DeptId = dept.DeptId,
+                               DeptName = dept.DeptName,
+                           }).ToList();
+            return View(empDept);
         }
 
+        public ActionResult Index1()
+        {
+             
+            return View(db.sp_getNeerjaEmployees().ToList());
+        }
         // GET: employeeDetails/Details/5
         public ActionResult Details(int? id)
         {
@@ -50,8 +66,10 @@ namespace DatabaseFirstApproach.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.employeeDetails.Add(employeeDetail);
-                db.SaveChanges();
+                // db.employeeDetails.Add(employeeDetail);
+                //db.SaveChanges();
+                db.spr_insertEmployee(employeeDetail.EmpName, employeeDetail.EmpSalary);
+
                 return RedirectToAction("Index");
             }
 

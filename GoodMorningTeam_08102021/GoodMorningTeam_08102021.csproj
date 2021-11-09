@@ -167,6 +167,7 @@
     <Content Include="Views\New\PartialViewExample.cshtml" />
     <Content Include="Views\Shared\_MyLayout2.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Default\HtmlHelperExample.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
