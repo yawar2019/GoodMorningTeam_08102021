@@ -1,10 +1,68 @@
-﻿
+﻿@using GoodMorningTeam_08102021.CustomHelper
+@model GoodMorningTeam_08102021.Models.EmployeeModel
 @{
     ViewBag.Title = "HtmlHelperExample";
 }
 
 <h2>HtmlHelperExample</h2>
+<script>
+    function fun()
+    {
+        alert($('#St1 option:selected').text());
+    }
+</script>
 
-<input type="text" name="FirstName" value="john" style="background-color:cadetblue" />
+<input type="text" name="FirstName" value="john" style="background-color:cadetblue;color:white"  />
 <br />
-@Html.TextBox("LastName","Seena",new { style = "background-color:green" })
+@Html.TextBox("LastName","Seena",new { style = "background-color:green;color:white" , @class="form-control",@id="txtId",@onclick="fun()" })
+<br />
+@Html.LabelFor(x=>x.EmpName)
+@Html.TextBoxFor(x=>x.EmpName, new { style = "background-color:green;color:white", @class = "form-control", @id = "txtId", @onclick = "fun()",@value="Chanda" })
+
+@Html.Password("pwd","test123")
+@Html.CheckBox("cbJava", true)<span>java</span><br />
+@Html.RadioButton("rbMale", "Male",true)<span>Male</span>
+@Html.RadioButton("rbMale", "FeMale")<span>FeMale</span><br />
+
+@Html.DropDownList("Country", new List<SelectListItem>(){
+    new SelectListItem {Text="India",Value="1"},
+    new SelectListItem {Text="China",Value="2"},
+    new SelectListItem {Text="japan",Value="3"},
+},"Select Country",new {@onchange="func()" })
+
+<br />
+<span>Address</span>
+@Html.TextArea("Address","Present Address",10,50,null)
+<br />
+
+@Html.DropDownList("States")<br />
+@Html.DropDownList("St",(IEnumerable<SelectListItem>)ViewBag.States,"Select States")<br />
+
+<form action="~/Default/HtmlHelperExample" method="post">
+  EmpName  <input type="text" name="EmpName"  /><br />
+  Gender @Html.RadioButton("rbMale", "Male", true)<span>Male</span>
+         @Html.RadioButton("rbMale", "FeMale")<span>FeMale</span><br />
+ @Html.DropDownList("St1", (IEnumerable<SelectListItem>)ViewBag.States, "Select States",new {@onchange="fun()" })<br />
+@Html.CheckBox("cbStatments", true)<span>Agreement Selected</span><br />
+    <input type="submit" value="submit" />
+</form>
+@if (ViewBag.ShowResult!=null)
+{
+    @ViewBag.ShowResult
+}
+
+<br />
+@myhtmlhelper.MyLabel("Agreement Accepted")
+@Html.createUrControl("text")
+@Html.createUrControl("radio")
+@Html.createUrControl("checkbox")
+@Html.createUrControl("file")
+
+
+
+
+@helper labelbyrazzorcode(string content)
+{
+    <label>@content</label>
+}
+@labelbyrazzorcode("hi this is all")

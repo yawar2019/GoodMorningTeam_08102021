@@ -21,7 +21,25 @@ namespace GoodMorningTeam_08102021.Controllers
 
         public ActionResult HtmlHelperExample()
         {
-            return View();
+            EmployeeEntities db = new Models.EmployeeEntities();
+            ViewBag.States = new SelectList(db.States, "Id", "StateName");
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpName = "usha";
+
+            return View(emp);
         }
+
+        [HttpPost]
+        public ActionResult HtmlHelperExample(string EmpName, string rbMale,int St,string cbStatments)
+        {
+            EmployeeEntities db = new Models.EmployeeEntities();
+            ViewBag.States = new SelectList(db.States, "Id", "StateName");
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpName = "usha";
+            var statename = db.States.Where(x => x.Id == St).SingleOrDefault();
+            ViewBag.ShowResult = EmpName + "," + rbMale + "," + statename.StateName + "," + cbStatments;
+            return View(emp);
+        }
+
     }
 }
