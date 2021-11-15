@@ -142,6 +142,16 @@
       <DependentUpon>StateModel.edmx</DependentUpon>
       <LastGenOutput>StateModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\UserDefineModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserDefineModel.edmx</DependentUpon>
+      <LastGenOutput>UserDefineModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\UserDefineModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserDefineModel.edmx</DependentUpon>
+      <LastGenOutput>UserDefineModel.cs</LastGenOutput>
+    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
@@ -153,6 +163,13 @@
     </EntityDeploy>
     <Content Include="Models\StateModel.edmx.diagram">
       <DependentUpon>StateModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\UserDefineModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserDefineModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\UserDefineModel.edmx.diagram">
+      <DependentUpon>UserDefineModel.edmx</DependentUpon>
     </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
@@ -168,6 +185,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NewController.cs" />
     <Compile Include="CustomeHandler\UserCustomHandler.cs" />
     <Compile Include="CustomHelper\myhtmlhelper.cs" />
@@ -179,6 +197,9 @@
     <Compile Include="Models\EmpDept.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>UserDefineModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\State.cs">
       <DependentUpon>StateModel.tt</DependentUpon>
     </Compile>
@@ -198,6 +219,27 @@
       <DependentUpon>StateModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDefineConstraint.cs" />
+    <Compile Include="Models\UserDefineModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDefineModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDefineModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDefineModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDefineModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDefineModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDetail.cs">
+      <DependentUpon>UserDefineModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRoleMapping.cs">
+      <DependentUpon>UserDefineModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +264,8 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Default\HtmlHelperExample.cshtml" />
     <Content Include="Views\Default\ValidationExample.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Dashboard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
