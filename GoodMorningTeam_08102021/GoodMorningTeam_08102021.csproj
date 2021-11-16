@@ -190,6 +190,7 @@
     <Compile Include="CustomeHandler\UserCustomHandler.cs" />
     <Compile Include="CustomHelper\myhtmlhelper.cs" />
     <Compile Include="FilterExample\CustomFilter.cs" />
+    <Compile Include="FilterExample\CustomRolesProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,6 +267,8 @@
     <Content Include="Views\Default\ValidationExample.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Dashboard.cshtml" />
+    <Content Include="Views\Login\AboutUs.cshtml" />
+    <Content Include="Views\Login\ContactUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

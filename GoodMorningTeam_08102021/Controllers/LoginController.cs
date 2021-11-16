@@ -27,10 +27,29 @@ namespace GoodMorningTeam_08102021.Controllers
             }
             return View();
         }
-        [Authorize]
+        [Authorize(Roles ="Admin,Manager")]
         public ActionResult Dashboard()
         {
             return View();
         }
+
+        [Authorize(Roles ="Admin")]
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
+        [Authorize(Roles ="Manager")]
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("~/Login/Login");
+        }
+        
     }
 }
