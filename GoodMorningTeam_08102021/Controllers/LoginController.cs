@@ -50,6 +50,36 @@ namespace GoodMorningTeam_08102021.Controllers
             FormsAuthentication.SignOut();
             return Redirect("~/Login/Login");
         }
-        
+
+        [OutputCache(Duration = 20,Location =System.Web.UI.OutputCacheLocation.Client)]
+        public ActionResult CheckedDateTime()
+        {
+            return View();
+        }
+
+
+        public ActionResult Test()
+        {
+            ViewData["studentId"] = 1211;
+            ViewBag.StudentName = "TestName";
+
+            TempData["StudentFees"] = 34567;
+
+            return RedirectToAction("Test1");
+        }
+        public ActionResult Test1()//when u jump from test to test1 new request 
+                                   //  .new request viewbag and viewdatawillbecomenull
+        {
+            
+            ViewBag.Student = ViewData["studentId"];//null values
+            //ViewBag.Fees = TempData["StudentFees"];
+            //TempData we have two types method to retain keys
+            //Keep and Peek Meethod
+
+           TempData.Keep();
+            ViewBag.Fees=TempData.Peek("StudentFees");
+
+            return View();
+        }
     }
 }
