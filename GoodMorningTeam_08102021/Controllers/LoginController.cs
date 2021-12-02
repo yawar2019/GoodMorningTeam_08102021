@@ -81,5 +81,13 @@ namespace GoodMorningTeam_08102021.Controllers
 
             return View();
         }
+
+        public ActionResult ConsumeWcfService()
+        {
+            ServiceReference1.Service1Client obj = new ServiceReference1.Service1Client();
+
+            return Content(obj.Add(12, 5).ToString());
+
+        }
     }
 }

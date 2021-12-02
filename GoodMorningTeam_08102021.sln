@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodMorningTeam_08102021", "GoodMorningTeam_08102021\GoodMorningTeam_08102021.csproj", "{641D7A2C-1672-4BF4-8EDA-644647E87B1E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{425C5796-E383-4FB7-9F66-9FAFCFEA338A} = {425C5796-E383-4FB7-9F66-9FAFCFEA338A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoDotnetExample", "AdoDotnetExample\AdoDotnetExample.csproj", "{BDAD8843-DFF2-487F-9A30-8FAEF3BEF774}"
 EndProject
@@ -14,6 +17,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelBasedApproach", "ModelBasedApproach\ModelBasedApproach.csproj", "{EFD931F8-7590-470F-9D91-3A218C0F7821}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandlErrorattributeFilterExample", "HandlErrorattributeFilterExample\HandlErrorattributeFilterExample.csproj", "{E6209675-2548-4430-9FEE-AFE1C634A5E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServiceApp", "WCFServiceApp\WCFServiceApp.csproj", "{425C5796-E383-4FB7-9F66-9FAFCFEA338A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{477C36AB-5725-412C-8A63-08ED443B4FDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +52,14 @@ Global
 		{E6209675-2548-4430-9FEE-AFE1C634A5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6209675-2548-4430-9FEE-AFE1C634A5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6209675-2548-4430-9FEE-AFE1C634A5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{425C5796-E383-4FB7-9F66-9FAFCFEA338A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425C5796-E383-4FB7-9F66-9FAFCFEA338A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425C5796-E383-4FB7-9F66-9FAFCFEA338A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425C5796-E383-4FB7-9F66-9FAFCFEA338A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477C36AB-5725-412C-8A63-08ED443B4FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477C36AB-5725-412C-8A63-08ED443B4FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477C36AB-5725-412C-8A63-08ED443B4FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477C36AB-5725-412C-8A63-08ED443B4FDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
