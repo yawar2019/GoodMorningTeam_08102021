@@ -1,19 +1,26 @@
 ﻿using AdoDotnetExample.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using Dapper;
 namespace AdoDotnetExample.Controllers
 {
     public class DefaultController : Controller
     {
         // GET: Default
         EmployeeContext db = new EmployeeContext();
+        SqlConnection con = new SqlConnection(@"Data Source=AZAM-PC\SQLEXPRESS;Initial Catalog=Employee;Integrated Security=true");//User Id=;Password
+
         public ActionResult Index()
         {
-            return View(db.GetEmployee());
+            var query=con.Query<EmployeeModel>("sp_getRituEmployees",commandType:System.Data.CommandType.StoredProcedure).ToList();
+
+            return View(query);
+
+            //return View(db.GetEmployee());
         }
 
         [HttpGet]
@@ -29,7 +36,11 @@ namespace AdoDotnetExample.Controllers
             //string EmpName = frm["EmpName"];
             //string EmpSalary = frm["EmpSalary"];
 
-            int i= db.SaveEmployee(emp);
+            var paramdet = new DynamicParameters();
+            paramdet.Add("@EmpName", emp.EmpName);
+            paramdet.Add("@EmpSalary",emp.EmpSalary);
+            int i = con.Execute("sp_insertRituEmployees", param: paramdet, commandType: System.Data.CommandType.StoredProcedure);
+            // int i= db.SaveEmployee(emp);
             if (i > 0)
             {
                 return RedirectToAction("index");
@@ -41,7 +52,11 @@ namespace AdoDotnetExample.Controllers
         [HttpGet]
         public ActionResult Edit(int? id)
         {
-            EmployeeModel emp = db.GetEmployeeById(id);
+            var paramdet = new DynamicParameters();
+            paramdet.Add("@EmpId", id);
+            //EmployeeModel emp = db.GetEmployeeById(id);
+            EmployeeModel emp = con.QuerySingle<EmployeeModel>("sp_getNeerjaEmployeeDetailsById",param:paramdet, commandType: System.Data.CommandType.StoredProcedure);
+
             return View(emp);
         }
 
@@ -49,8 +64,13 @@ namespace AdoDotnetExample.Controllers
        
         public ActionResult Edit(EmployeeModel emp)
         {
+            var paramdet = new DynamicParameters();
+            paramdet.Add("@EmpId", emp.EmpId);
+            paramdet.Add("@EmpName", emp.EmpName);
+            paramdet.Add("@EmpSalary", emp.EmpSalary);
+            int i = con.Execute("sp_UpdateNeerjaEmployees", param: paramdet, commandType: System.Data.CommandType.StoredProcedure);
 
-            int i = db.UpdateEmployee(emp);
+           // int i = db.UpdateEmployee(emp);
             if (i > 0)
             {
                 return RedirectToAction("index");
